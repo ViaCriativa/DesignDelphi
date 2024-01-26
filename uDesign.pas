@@ -7,7 +7,8 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Ani, FMX.Objects, System.Skia,
   FMX.Skia, FMX.Effects, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.Edit, FMX.ListBox,
   Alcinoe.FMX.StdCtrls, FMX.MultiView, Alcinoe.FMX.Objects, Alcinoe.FMX.Ani, Alcinoe.FMX.Edit,
-  FMX.Colors;
+  FMX.Colors, FMX.ComboEdit, FMX.ListView.Types, FMX.ListView.Appearances,
+  FMX.ListView.Adapters.Base, FMX.ListView;
 
 type
   TFormDesign = class(TForm)
@@ -113,6 +114,8 @@ type
     SkAnimatedImage2: TSkAnimatedImage;
     Rectangle5: TRectangle;
     SkSvg10: TSkSvg;
+    ListView1: TListView;
+    ListBox1: TListBox;
     procedure RectButMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X,
       Y: Single);
     procedure RectButMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X,
@@ -138,6 +141,8 @@ type
     const RectEditColExitEmpy = TAlphaColors.Red;
   public
     { Public declarations }
+    procedure CarregarListView(const Texto: array of string);
+    procedure CarregarListBox(const Texto: array of string);
   end;
 
 var
@@ -340,10 +345,89 @@ begin
 end;
 
 procedure TFormDesign.Timer1Timer(Sender: TObject);
+var
+  Texto : array of string;
 begin
   Timer1.Enabled := False;
   SkSvgAlert1.Visible := False;
   SkSvgAlert2.Visible := False;
+
+
+  SetLength(Texto, 5);
+  Texto[0] := 'Maçã';
+  Texto[1] := 'Laranja';
+  Texto[2] := 'Banana';
+  Texto[3] := 'Morango';
+  Texto[4] := 'Abacaxi';
+
+  // Chama a função CarregarListView passando o array de strings
+  CarregarListView(Texto);
+  CarregarListBox(Texto);
+
 end;
+
+procedure TFormDesign.CarregarListView(const Texto: array of string);
+var
+  Item: TListViewItem;
+  TextoItem: string;
+begin
+  // Limpa a ListView antes de adicionar novos itens
+  ListView1.Items.Clear;
+
+  // Adiciona cada texto como um item separado na ListView
+  for TextoItem in Texto do
+  begin
+    Item := ListView1.Items.Add;
+    item.Purpose := TListItemPurpose.None;
+    item.Height := 25;
+
+    Item.Text := TextoItem;
+  end;
+end;
+
+
+procedure TFormDesign.CarregarListBox(const Texto: array of string);
+var
+  TextoItem: string;
+  Item: TListBoxItem;
+  Line: TRectangle;
+  iTot, I : Integer;
+begin
+  // Limpa o ListBox antes de adicionar novos itens
+  ListBox1.Clear;
+  iTot := Length(Texto);
+
+  // Adiciona cada texto como um item separado no ListBox
+  for I := 0 to iTot - 1 do
+  begin
+    // Cria um novo item para cada texto
+    Item := TListBoxItem.Create(ListBox1);
+    Item.Text := Texto[I];
+    Item.Height := 25; // Define a altura do item
+    item.Margins.Top := 5;
+
+    if I = 0 then
+    begin
+      Line := TRectangle.Create(Item);
+      Line.Parent := Item;
+      Line.Align := TAlignLayout.Top;
+      Line.Height := 1;
+      Line.Opacity := 0.1;
+      Line.Fill.Color := TAlphaColorRec.Gray;
+    end;
+
+    Line := TRectangle.Create(Item);
+    Line.Parent := Item;
+    Line.Align := TAlignLayout.Bottom;
+    Line.Height := 1;
+    Line.Opacity := 0.1;
+    Line.Fill.Color := TAlphaColorRec.Gray;
+
+    ListBox1.AddObject(Item);
+  end;
+end;
+
+
+
 
 end.

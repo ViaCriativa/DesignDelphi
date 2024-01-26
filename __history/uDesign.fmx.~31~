@@ -594,6 +594,7 @@ object FormDesign: TFormDesign
         TabOrder = 0
         object RectBut: TRectangle
           Align = Center
+          Cursor = crHandPoint
           Fill.Color = xFF3555A5
           Size.Width = 200.000000000000000000
           Size.Height = 50.000000000000000000
@@ -1689,6 +1690,7 @@ object FormDesign: TFormDesign
         end
         object Rectangle3: TRectangle
           Align = Right
+          Cursor = crHandPoint
           Fill.Color = xFF3555A5
           Margins.Left = 5.000000000000000000
           Margins.Top = 5.000000000000000000
@@ -2424,149 +2426,43 @@ object FormDesign: TFormDesign
           MasterButton = sbFiltro
           Mode = Drawer
           Size.Width = 220.000000000000000000
-          Size.Height = 425.000000000000000000
+          Size.Height = 430.000000000000000000
           Size.PlatformDefault = False
           StyleLookup = 'mvClear'
           Visible = False
           TabOrder = 1
           object CalloutRectangle1: TCalloutRectangle
-            Align = Client
-            Corners = [TopLeft, BottomLeft]
+            Align = Top
             Fill.Color = claAliceblue
             Padding.Left = 5.000000000000000000
             Padding.Right = 5.000000000000000000
+            Margins.Right = 5.000000000000000000
             Margins.Bottom = 5.000000000000000000
-            Size.Width = 220.000000000000000000
-            Size.Height = 420.000000000000000000
+            Size.Width = 215.000000000000000000
+            Size.Height = 150.000000000000000000
             Size.PlatformDefault = False
             Stroke.Kind = None
             XRadius = 8.000000000000000000
             YRadius = 8.000000000000000000
             CalloutWidth = 20.000000000000000000
             CalloutLength = 8.000000000000000000
-            CalloutOffset = -15.000000000000000000
+            CalloutOffset = -12.000000000000000000
             object VertScrollBox1: TVertScrollBox
               Align = Client
               Margins.Top = 10.000000000000000000
-              Size.Width = 210.000000000000000000
-              Size.Height = 410.000000000000000000
+              Size.Width = 205.000000000000000000
+              Size.Height = 140.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 1
               ShowScrollBars = False
-              Viewport.Width = 210.000000000000000000
-              Viewport.Height = 410.000000000000000000
-              object lblCat: TLabel
-                Align = Top
-                StyledSettings = [FontColor]
-                Margins.Left = 5.000000000000000000
-                Margins.Top = 10.000000000000000000
-                Margins.Right = 5.000000000000000000
-                Position.X = 5.000000000000000000
-                Position.Y = 162.000000000000000000
-                Size.Width = 200.000000000000000000
-                Size.Height = 160.000000000000000000
-                Size.PlatformDefault = False
-                TextSettings.Font.StyleExt = {00060000000000000004000000}
-                TextSettings.HorzAlign = Center
-                TextSettings.VertAlign = Leading
-                TextSettings.Trimming = None
-                Text = 'Categoria'
-                TabOrder = 6
-                object cboCat: TListBox
-                  Align = Client
-                  Margins.Top = 25.000000000000000000
-                  Size.Width = 200.000000000000000000
-                  Size.Height = 135.000000000000000000
-                  Size.PlatformDefault = False
-                  TabOrder = 0
-                  DisableFocusEffect = True
-                  DefaultItemStyles.ItemStyle = ''
-                  DefaultItemStyles.GroupHeaderStyle = ''
-                  DefaultItemStyles.GroupFooterStyle = ''
-                  ShowCheckboxes = True
-                  Viewport.Width = 196.000000000000000000
-                  Viewport.Height = 131.000000000000000000
-                end
-              end
-              object lblCor: TLabel
-                Align = Top
-                StyledSettings = [FontColor]
-                Margins.Left = 5.000000000000000000
-                Margins.Top = 10.000000000000000000
-                Margins.Right = 5.000000000000000000
-                Position.X = 5.000000000000000000
-                Position.Y = 116.000000000000000000
-                Size.Width = 200.000000000000000000
-                Size.Height = 36.000000000000000000
-                Size.PlatformDefault = False
-                TextSettings.Font.StyleExt = {00060000000000000004000000}
-                TextSettings.Trimming = None
-                Text = 'Cor'
-                TabOrder = 7
-                object ComboBox3: TComboBox
-                  Align = Right
-                  ItemIndex = 0
-                  Position.X = 40.000000000000000000
-                  Size.Width = 160.000000000000000000
-                  Size.Height = 36.000000000000000000
-                  Size.PlatformDefault = False
-                  TabOrder = 0
-                end
-              end
-              object lblPreco: TLabel
-                Align = Top
-                StyledSettings = [FontColor]
-                Margins.Left = 5.000000000000000000
-                Margins.Top = 10.000000000000000000
-                Margins.Right = 5.000000000000000000
-                Position.X = 5.000000000000000000
-                Position.Y = 70.000000000000000000
-                Size.Width = 200.000000000000000000
-                Size.Height = 36.000000000000000000
-                Size.PlatformDefault = False
-                TextSettings.Font.StyleExt = {00060000000000000004000000}
-                TextSettings.Trimming = None
-                Text = 'Pre'#231'o'
-                TabOrder = 9
-                object edPreco2: TEdit
-                  Touch.InteractiveGestures = [LongTap, DoubleTap]
-                  Align = Right
-                  TabOrder = 0
-                  KeyboardType = NumberPad
-                  Position.X = 130.000000000000000000
-                  Size.Width = 70.000000000000000000
-                  Size.Height = 36.000000000000000000
-                  Size.PlatformDefault = False
-                  TextPrompt = 'Max'
-                end
-                object edPreco1: TEdit
-                  Touch.InteractiveGestures = [LongTap, DoubleTap]
-                  Align = Right
-                  TabOrder = 1
-                  KeyboardType = NumberPad
-                  Position.X = 41.000000000000000000
-                  Size.Width = 70.000000000000000000
-                  Size.Height = 36.000000000000000000
-                  Size.PlatformDefault = False
-                  TextPrompt = 'Min'
-                end
-                object Label1: TLabel
-                  Align = Right
-                  Position.X = 111.000000000000000000
-                  Size.Width = 19.000000000000000000
-                  Size.Height = 36.000000000000000000
-                  Size.PlatformDefault = False
-                  TextSettings.Trimming = None
-                  Text = ' - '
-                  TabOrder = 2
-                end
-              end
+              Viewport.Width = 205.000000000000000000
+              Viewport.Height = 140.000000000000000000
               object Layout10: TLayout
                 Align = Top
                 Margins.Top = 5.000000000000000000
                 Margins.Bottom = 5.000000000000000000
                 Position.Y = 5.000000000000000000
-                Size.Width = 210.000000000000000000
+                Size.Width = 205.000000000000000000
                 Size.Height = 50.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 1
@@ -2576,7 +2472,7 @@ object FormDesign: TFormDesign
                   Margins.Top = 5.000000000000000000
                   Margins.Right = 5.000000000000000000
                   Margins.Bottom = 5.000000000000000000
-                  Size.Width = 200.000000000000000000
+                  Size.Width = 195.000000000000000000
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   Text = 'Exemplo'
@@ -2584,7 +2480,7 @@ object FormDesign: TFormDesign
                   TextSettings.HorzAlign = Leading
                   object Layout11: TLayout
                     Align = Right
-                    Position.X = 150.000000000000000000
+                    Position.X = 145.000000000000000000
                     Size.Width = 50.000000000000000000
                     Size.Height = 40.000000000000000000
                     Size.PlatformDefault = False
@@ -2627,7 +2523,7 @@ object FormDesign: TFormDesign
                     HitTest = False
                     LineType = Bottom
                     Opacity = 0.200000002980232200
-                    Size.Width = 200.000000000000000000
+                    Size.Width = 195.000000000000000000
                     Size.Height = 40.000000000000000000
                     Size.PlatformDefault = False
                   end
@@ -2678,7 +2574,7 @@ object FormDesign: TFormDesign
           Caret.Color = claWhite
           Caret.Width = 1
           object Line2: TLine
-            Align = Client
+            Align = Contents
             HitTest = False
             LineType = Bottom
             Margins.Top = 5.000000000000000000
@@ -2686,34 +2582,6 @@ object FormDesign: TFormDesign
             Size.Height = 31.000000000000000000
             Size.PlatformDefault = False
             Stroke.Color = claAqua
-            object PathLimpar: TPath
-              Align = Right
-              Data.Path = {
-                220000000000000008AC944008AC94400200000074EC9A408F678E4002000000
-                8C13A5408F678E4002000000F853AB4008AC944001000000000000414260E940
-                0100000004562A4108AC944002000000D2762D416C6A8E40020000002E893241
-                6C6A8E4002000000FCA9354108AC944002000000CACA3841A4ED9A4002000000
-                CACA38415C12A54002000000FCA93541F853AB4001000000DF4F0B4100000041
-                01000000FCA9354104562A4102000000CACA3841D2762D4102000000CACA3841
-                2E89324102000000FCA93541FCA93541020000002E893241CACA384102000000
-                D2762D41CACA38410200000004562A41FCA935410100000000000041DF4F0B41
-                01000000F853AB40FCA93541020000005C12A540CACA384102000000A4ED9A40
-                CACA38410200000008AC9440FCA93541020000006C6A8E402E89324102000000
-                6C6A8E40D2762D410200000008AC944004562A41010000004260E94000000041
-                0100000008AC9440F853AB40020000008F678E408C13A540020000008F678E40
-                73EC9A400200000008AC944008AC94400300000008AC944008AC9440}
-              Fill.Color = claAqua
-              Margins.Top = 8.000000000000000000
-              Margins.Right = 5.000000000000000000
-              Margins.Bottom = 8.000000000000000000
-              Position.X = 198.000000000000000000
-              Position.Y = 8.000000000000000000
-              Size.Width = 12.000000000000000000
-              Size.Height = 19.000000000000000000
-              Size.PlatformDefault = False
-              Stroke.Kind = None
-              Visible = False
-            end
           end
           object ShadowEffect5: TShadowEffect
             Distance = 3.000000000000000000
@@ -2722,9 +2590,31 @@ object FormDesign: TFormDesign
             Opacity = 0.200000002980232200
             ShadowColor = claBlack
           end
+          object SkSvg10: TSkSvg
+            Align = Right
+            Cursor = crHandPoint
+            HitTest = True
+            Margins.Left = 2.000000000000000000
+            Margins.Top = 12.000000000000000000
+            Margins.Right = 5.000000000000000000
+            Margins.Bottom = 10.000000000000000000
+            Position.X = 196.000000000000000000
+            Position.Y = 12.000000000000000000
+            Size.Width = 14.000000000000000000
+            Size.Height = 14.000000000000000000
+            Size.PlatformDefault = False
+            OnClick = SkSvg10Click
+            Svg.OverrideColor = claAqua
+            Svg.Source = 
+              '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" i' +
+              'd="x"><g fill="none" fill-rule="evenodd" stroke="#000" stroke-li' +
+              'necap="round" stroke-linejoin="round" stroke-width="2"><path d="' +
+              'M13 1 1 13M1 1l12 12"></path></g></svg>'
+          end
         end
         object sbPesq: TRectangle
           Align = Right
+          Cursor = crHandPoint
           Fill.Color = xFF3555A5
           Margins.Left = 5.000000000000000000
           Margins.Top = 2.000000000000000000
@@ -2809,6 +2699,7 @@ object FormDesign: TFormDesign
           TabOrder = 2
           object sbFiltro: TRectangle
             Align = MostRight
+            Cursor = crHandPoint
             EnableDragHighlight = False
             Fill.Color = xFF3555A5
             Margins.Left = 5.000000000000000000
@@ -2886,7 +2777,7 @@ object FormDesign: TFormDesign
         Mode = NavigationPane
         EnableDragHighlight = False
         Size.Width = 230.000000000000000000
-        Size.Height = 672.000000000000000000
+        Size.Height = 480.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = 'mvClear'
         TabOrder = 0
@@ -2920,81 +2811,87 @@ object FormDesign: TFormDesign
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
-            object Label10: TLabel
+            object Rectangle5: TRectangle
               Align = Client
-              StyledSettings = [Family]
-              Margins.Left = 10.000000000000000000
-              Size.Width = 0.000000000000000000
+              Cursor = crHandPoint
+              Fill.Kind = None
+              Size.Width = 51.000000000000000000
               Size.Height = 50.000000000000000000
               Size.PlatformDefault = False
-              TextSettings.Font.Size = 16.000000000000000000
-              TextSettings.Font.StyleExt = {00070000000000000004000000}
-              TextSettings.FontColor = claDarkorange
-              TextSettings.WordWrap = False
-              TextSettings.Trimming = None
-              Text = 'Sair'
-              TabOrder = 0
-            end
-            object Layout9: TLayout
-              Align = MostLeft
-              Size.Width = 50.000000000000000000
-              Size.Height = 50.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 1
+              Stroke.Kind = None
+              OnMouseDown = RectButMouseDown
+              OnMouseUp = RectButMouseUp
               object Rectangle4: TRectangle
-                Align = Client
+                Align = MostLeft
                 Fill.Kind = None
+                HitTest = False
                 Margins.Left = 5.000000000000000000
                 Margins.Top = 5.000000000000000000
                 Margins.Right = 5.000000000000000000
                 Margins.Bottom = 5.000000000000000000
+                Position.X = 5.000000000000000000
+                Position.Y = 5.000000000000000000
                 Size.Width = 40.000000000000000000
                 Size.Height = 40.000000000000000000
                 Size.PlatformDefault = False
                 Stroke.Color = claAqua
-                XRadius = 2.000000000000000000
-                YRadius = 2.000000000000000000
-                OnMouseDown = RectButMouseDown
-                OnMouseUp = RectButMouseUp
+                XRadius = 5.000000000000000000
+                YRadius = 5.000000000000000000
                 object SkSvg9: TSkSvg
                   Align = Client
-                  Margins.Left = 8.000000000000000000
-                  Margins.Top = 5.000000000000000000
-                  Margins.Right = 5.000000000000000000
-                  Margins.Bottom = 5.000000000000000000
-                  Size.Width = 27.000000000000000000
-                  Size.Height = 30.000000000000000000
+                  Margins.Left = 4.000000000000000000
+                  Margins.Top = 4.000000000000000000
+                  Margins.Right = 4.000000000000000000
+                  Margins.Bottom = 4.000000000000000000
+                  Size.Width = 32.000000000000000000
+                  Size.Height = 32.000000000000000000
                   Size.PlatformDefault = False
                   Svg.OverrideColor = claAqua
                   Svg.Source = 
-                    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id' +
-                    '="sign-out"><rect width="256" height="256" fill="none"></rect><p' +
-                    'olyline fill="none" stroke="#000" stroke-linecap="round" stroke-' +
-                    'linejoin="round" stroke-width="16" points="174.011 86 216 128 17' +
-                    '4.011 170"></polyline><line x1="104" x2="215.971" y1="128" y2="1' +
-                    '28" fill="none" stroke="#000" stroke-linecap="round" stroke-line' +
-                    'join="round" stroke-width="16"></line><path fill="none" stroke="' +
-                    '#000" stroke-linecap="round" stroke-linejoin="round" stroke-widt' +
-                    'h="16" d="M104,216H48a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8h56"></path>' +
-                    '</svg>'
+                    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="' +
+                    'logout"><path d="M21.9 10.6c-.1-.1-.1-.2-.2-.3l-2-2c-.4-.4-1-.4-' +
+                    '1.4 0s-.4 1 0 1.4l.3.3H16c-.6 0-1 .4-1 1s.4 1 1 1h2.6l-.3.3c-.4.' +
+                    '4-.4 1 0 1.4.2.2.5.3.7.3s.5-.1.7-.3l2-2c.1-.1.2-.2.2-.3.1-.3.1-.' +
+                    '5 0-.8z"></path><path d="M17 14c-.6 0-1 .4-1 1v1c0 .6-.4 1-1 1h-' +
+                    '1V8.4c0-1.3-.8-2.4-1.9-2.8L10.5 5H15c.6 0 1 .4 1 1v1c0 .6.4 1 1 ' +
+                    '1s1-.4 1-1V6c0-1.7-1.3-3-3-3H5c-.1 0-.2 0-.3.1-.1 0-.2.1-.2.1l-.' +
+                    '1.1c-.1 0-.2.1-.2.2v.1c-.1 0-.2.1-.2.2V18c0 .4.3.8.6.9l6.6 2.5c.' +
+                    '2.1.5.1.7.1.4 0 .8-.1 1.1-.4.5-.4.9-1 .9-1.6V19h1c1.7 0 3-1.3 3-' +
+                    '3v-1c.1-.5-.3-1-.9-1zM6 17.3V5.4l5.3 2c.4.2.7.6.7 1v11.1l-6-2.2z' +
+                    '"></path></svg>'
                   Svg.WrapMode = Stretch
                 end
-                object FloatAnimation4: TFloatAnimation
-                  Duration = 0.200000002980232200
-                  PropertyName = 'Opacity'
-                  StartValue = 1.000000000000000000
-                  StopValue = 1.000000000000000000
-                  Trigger = 'IsMouseOver=false'
-                end
-                object ShadowEffect7: TShadowEffect
-                  Distance = 3.000000000000000000
-                  Direction = 45.000000000000000000
-                  Softness = 0.300000011920929000
-                  Opacity = 0.300000011920929000
-                  ShadowColor = claAqua
-                  Trigger = 'IsMouseOver=true'
-                  Enabled = False
-                end
+              end
+              object Label10: TLabel
+                Align = Client
+                StyledSettings = [Family]
+                Margins.Left = 10.000000000000000000
+                Size.Width = 0.000000000000000000
+                Size.Height = 50.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Size = 16.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claDarkorange
+                TextSettings.WordWrap = False
+                TextSettings.Trimming = None
+                Text = 'Sair'
+                TabOrder = 0
+              end
+              object FloatAnimation4: TFloatAnimation
+                Duration = 0.200000002980232200
+                PropertyName = 'Opacity'
+                StartValue = 1.000000000000000000
+                StopValue = 1.000000000000000000
+                Trigger = 'IsMouseOver=false'
+              end
+              object ShadowEffect7: TShadowEffect
+                Distance = 3.000000000000000000
+                Direction = 45.000000000000000000
+                Softness = 0.300000011920929000
+                Opacity = 0.300000011920929000
+                ShadowColor = claAqua
+                Trigger = 'IsMouseOver=true'
+                Enabled = False
               end
             end
           end
@@ -3020,6 +2917,7 @@ object FormDesign: TFormDesign
                 TabOrder = 0
                 object Rectangle8: TRectangle
                   Align = Client
+                  Cursor = crHandPoint
                   Fill.Color = claNull
                   Margins.Left = 5.000000000000000000
                   Margins.Top = 5.000000000000000000
@@ -3029,8 +2927,8 @@ object FormDesign: TFormDesign
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   Stroke.Color = claAqua
-                  XRadius = 2.000000000000000000
-                  YRadius = 2.000000000000000000
+                  XRadius = 5.000000000000000000
+                  YRadius = 5.000000000000000000
                   OnMouseDown = RectButMouseDown
                   OnMouseUp = RectButMouseUp
                   object Label18: TLabel
@@ -3131,6 +3029,7 @@ object FormDesign: TFormDesign
                 TabOrder = 1
                 object RectMenu: TRectangle
                   Align = Client
+                  Cursor = crHandPoint
                   Fill.Kind = None
                   Margins.Left = 5.000000000000000000
                   Margins.Top = 5.000000000000000000

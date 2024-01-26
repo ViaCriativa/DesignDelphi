@@ -2533,6 +2533,41 @@ object FormDesign: TFormDesign
           end
         end
       end
+      object ListView1: TListView
+        ItemAppearanceClassName = 'TCustomizeItemObjects'
+        ItemEditAppearanceClassName = 'TCustomizeItemObjects'
+        HeaderAppearanceClassName = 'TListHeaderObjects'
+        FooterAppearanceClassName = 'TListHeaderObjects'
+        EditMode = True
+        AllowSelection = False
+        Align = Top
+        EnableDragHighlight = False
+        Margins.Right = 10.000000000000000000
+        Position.Y = 165.000000000000000000
+        Size.Width = 580.000000000000000000
+        Size.Height = 97.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 7
+        StyleLookup = 'ListView1Style1'
+      end
+      object ListBox1: TListBox
+        Align = Top
+        Margins.Left = 5.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Position.X = 5.000000000000000000
+        Position.Y = 262.000000000000000000
+        Size.Width = 575.000000000000000000
+        Size.Height = 100.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'transparentlistboxstyle'
+        TabOrder = 8
+        DisableFocusEffect = True
+        DefaultItemStyles.ItemStyle = ''
+        DefaultItemStyles.GroupHeaderStyle = ''
+        DefaultItemStyles.GroupFooterStyle = ''
+        Viewport.Width = 575.000000000000000000
+        Viewport.Height = 100.000000000000000000
+      end
     end
     object LayoutTop: TLayout
       Align = Top
