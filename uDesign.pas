@@ -6,20 +6,19 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Ani, FMX.Objects, System.Skia,
   FMX.Skia, FMX.Effects, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.Edit, FMX.ListBox,
-  Alcinoe.FMX.StdCtrls, FMX.MultiView, Alcinoe.FMX.Objects, Alcinoe.FMX.Ani, Alcinoe.FMX.Edit,
-  FMX.Colors, FMX.ComboEdit, FMX.ListView.Types, FMX.ListView.Appearances,
-  FMX.ListView.Adapters.Base, FMX.ListView;
+  FMX.MultiView, FMX.Colors, FMX.ComboEdit, FMX.ListView.Types, FMX.ListView.Appearances,
+  FMX.ListView.Adapters.Base, FMX.ListView, Alcinoe.FMX.StdCtrls, Alcinoe.FMX.Objects,
+  Alcinoe.FMX.Edit;
 
 type
   TFormDesign = class(TForm)
     RectBut: TRectangle;
     CoAni: TColorAnimation;
     SkLText: TSkLabel;
-    ShadEff: TShadowEffect;
+    ShadEff23: TShadowEffect;
     FloAni: TFloatAnimation;
     SkAnimatedImage1: TSkAnimatedImage;
     SkSvg1: TSkSvg;
-    GlowEffect1: TGlowEffect;
     RectNome: TRectangle;
     Edit: TEdit;
     RectNomeDesc: TRectangle;
@@ -63,7 +62,6 @@ type
     LayoutMV: TLayout;
     Layout10: TLayout;
     Layout11: TLayout;
-    ALSwitch: TALSwitch;
     Text1: TText;
     Line1: TLine;
     RectFundo: TRectangle;
@@ -93,8 +91,6 @@ type
     Rectangle13: TRectangle;
     Layout17: TLayout;
     RectMenu: TRectangle;
-    PathMenu: TPath;
-    PathExit: TPath;
     Label22: TLabel;
     TextNumPed: TText;
     Layout18: TLayout;
@@ -114,19 +110,43 @@ type
     SkAnimatedImage2: TSkAnimatedImage;
     Rectangle5: TRectangle;
     SkSvg10: TSkSvg;
-    ListView1: TListView;
+    Layout9: TLayout;
+    Rectangle6: TRectangle;
+    SkSvg11: TSkSvg;
+    Rectangle7: TRectangle;
+    RectmvT: TRectangle;
+    mvTransp: TMultiView;
     ListBox1: TListBox;
+    Layout15: TLayout;
+    Layout16: TLayout;
+    Rectangle9: TRectangle;
+    SkLabel2: TSkLabel;
+    edCodTransp: TEdit;
+    SkSvg12: TSkSvg;
+    RectPesqT: TRectangle;
+    FloatAnimation15: TFloatAnimation;
+    ShadowEffect27: TShadowEffect;
+    SkSvg13: TSkSvg;
+    SkSvgTClear: TSkSvg;
+    Layout19: TLayout;
+    Layout20: TLayout;
+    Layout21: TLayout;
+    Rectangle10: TRectangle;
+    ShadowEffect9: TShadowEffect;
+    Switch1: TSwitch;
     procedure RectButMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X,
       Y: Single);
     procedure RectButMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X,
       Y: Single);
     procedure EditEnter(Sender: TObject);
     procedure EditExit(Sender: TObject);
-    procedure ALSwitchChange(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure Rectangle3Click(Sender: TObject);
     procedure SkAnimatedImage2AnimationFinish(Sender: TObject);
     procedure SkSvg10Click(Sender: TObject);
+    procedure FormResize(Sender: TObject);
+    procedure Rectangle6Click(Sender: TObject);
+    procedure RectPesqTClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -141,12 +161,12 @@ type
     const RectEditColExitEmpy = TAlphaColors.Red;
   public
     { Public declarations }
-    procedure CarregarListView(const Texto: array of string);
     procedure CarregarListBox(const Texto: array of string);
   end;
 
 var
   FormDesign: TFormDesign;
+  Texto : array of string;
 
 implementation
 
@@ -154,24 +174,6 @@ implementation
 
 
 //Cor ao clicar no TEdit--------------------------------------------------------
-procedure TFormDesign.ALSwitchChange(Sender: TObject);
-begin
-  if Sender is TALSwitch then
-  begin
-    var
-      Switch := TALSwitch(Sender);
-    if Switch.IsChecked then
-    begin
-      Switch.Thumb.Fill.Color       := SwtColCheck;
-      Switch.Background.Fill.Color  := SwtColCheck;
-    end
-    else
-    begin
-      Switch.Thumb.Fill.Color       := SwtColnoCheck;
-      Switch.Background.Fill.Color  := SwtColnoCheckBk;
-    end;
-  end;
-end;
 
 procedure TFormDesign.EditEnter(Sender: TObject);
 Var
@@ -293,6 +295,35 @@ begin
 
 end;
 
+procedure TFormDesign.FormResize(Sender: TObject);
+begin
+    if Self.Width < 385 then
+  begin
+    LayoutCli.Margins.Left := -45;
+    MultiView1.Mode := TMultiViewMode.Drawer;
+    //GridLayout1.Align := TAlignLayout.HorzCenter;
+    //GridLayout1.Width := 175;
+    //GridLayout1.Height := 50;
+  end
+  else
+  begin
+    MultiView1.Mode := TMultiViewMode.NavigationPane;
+    LayoutCli.Margins.Left := 0;
+    //GridLayout1.Align := TAlignLayout.Center;
+    //GridLayout1.Width := 350;
+    //GridLayout1.Height := 50;
+  end;
+
+
+  if Self.Width < 385 then
+    RectPesq.Align        := TAlignLayout.Client
+  else
+  begin
+    RectPesq.Align        := TAlignLayout.Right;
+    RectPesq.Width        := 330;
+  end;
+end;
+
 procedure TFormDesign.Rectangle3Click(Sender: TObject);
 var
   i : Integer;
@@ -306,6 +337,11 @@ begin
       Break;
 
   TSkAnimatedImage(TRectangle(Sender).Children[i]).Animation.Start;
+end;
+
+procedure TFormDesign.Rectangle6Click(Sender: TObject);
+begin
+  MultiView1.ShowMaster;
 end;
 
 procedure TFormDesign.RectButMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X,
@@ -324,6 +360,17 @@ procedure TFormDesign.RectButMouseUp(Sender: TObject; Button: TMouseButton; Shif
   Y: Single);
 begin
   TRectangle(Sender).opacity := 1;
+end;
+
+procedure TFormDesign.RectPesqTClick(Sender: TObject);
+begin
+  mvTransp.HideMaster;
+  mvTransp.Width := RectmvT.Width;
+
+  CarregarListBox(Texto);
+
+  mvTransp.ShowMaster;
+
 end;
 
 procedure TFormDesign.SkAnimatedImage2AnimationFinish(Sender: TObject);
@@ -345,8 +392,6 @@ begin
 end;
 
 procedure TFormDesign.Timer1Timer(Sender: TObject);
-var
-  Texto : array of string;
 begin
   Timer1.Enabled := False;
   SkSvgAlert1.Visible := False;
@@ -361,72 +406,28 @@ begin
   Texto[4] := 'Abacaxi';
 
   // Chama a função CarregarListView passando o array de strings
-  CarregarListView(Texto);
-  CarregarListBox(Texto);
 
 end;
-
-procedure TFormDesign.CarregarListView(const Texto: array of string);
-var
-  Item: TListViewItem;
-  TextoItem: string;
-begin
-  // Limpa a ListView antes de adicionar novos itens
-  ListView1.Items.Clear;
-
-  // Adiciona cada texto como um item separado na ListView
-  for TextoItem in Texto do
-  begin
-    Item := ListView1.Items.Add;
-    item.Purpose := TListItemPurpose.None;
-    item.Height := 25;
-
-    Item.Text := TextoItem;
-  end;
-end;
-
 
 procedure TFormDesign.CarregarListBox(const Texto: array of string);
 var
-  TextoItem: string;
   Item: TListBoxItem;
-  Line: TRectangle;
-  iTot, I : Integer;
+  I : Integer;
 begin
   // Limpa o ListBox antes de adicionar novos itens
   ListBox1.Clear;
-  iTot := Length(Texto);
 
   // Adiciona cada texto como um item separado no ListBox
-  for I := 0 to iTot - 1 do
+  for I := 0 to Length(Texto) - 1 do
   begin
     // Cria um novo item para cada texto
     Item := TListBoxItem.Create(ListBox1);
     Item.Text := Texto[I];
     Item.Height := 25; // Define a altura do item
-    item.Margins.Top := 5;
-
-    if I = 0 then
-    begin
-      Line := TRectangle.Create(Item);
-      Line.Parent := Item;
-      Line.Align := TAlignLayout.Top;
-      Line.Height := 1;
-      Line.Opacity := 0.1;
-      Line.Fill.Color := TAlphaColorRec.Gray;
-    end;
-
-    Line := TRectangle.Create(Item);
-    Line.Parent := Item;
-    Line.Align := TAlignLayout.Bottom;
-    Line.Height := 1;
-    Line.Opacity := 0.1;
-    Line.Fill.Color := TAlphaColorRec.Gray;
 
     ListBox1.AddObject(Item);
   end;
 end;
-
 
 
 
